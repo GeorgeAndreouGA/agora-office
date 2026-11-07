@@ -1,0 +1,79 @@
+/* Re-tint the docx-editor chrome in terracotta and marble. The page itself stays Word-faithful. */
+.papyros {
+  display: flex;
+  flex-direction: column;
+}
+.papyros > .docx-editor,
+.papyros .greek-docx {
+  flex: 1;
+  min-height: 0;
+}
+.docx-editor.greek-docx {
+  --primary: 14 59% 40%;
+  --primary-foreground: 36 45% 97%;
+  --ring: 14 59% 40%;
+  --accent: 30 33% 92%;
+  --accent-foreground: 24 20% 9%;
+  --secondary: 36 30% 93%;
+  --muted: 36 30% 93%;
+  --muted-foreground: 28 9% 33%;
+  --border: 36 24% 80%;
+  --input: 36 24% 76%;
+  --doc-primary: #a4472a;
+  --doc-primary-hover: #7e3420;
+  --doc-primary-light: #f6e6dc;
+  --doc-accent: #a4472a;
+  --doc-accent-bg: #f6e6dc;
+  --doc-on-primary: #ffffff;
+  --doc-surface: #fbf8f2;
+  --doc-card: #fbf8f2;
+  --doc-bg: #f4efe6;
+  --doc-bg-subtle: #efe8dc;
+  --doc-bg-hover: #ece3d4;
+  --doc-bg-input: #fbf8f2;
+  --doc-text: #1b1712;
+  --doc-text-muted: #5c5248;
+  --doc-border: #d9cfbf;
+  --doc-border-light: #e3dacb;
+  --doc-border-dark: #c9bca8;
+  --doc-border-input: #c9bca8;
+  --doc-page-bg: #e7e0d4;
+  --doc-focus-ring: rgba(164, 71, 42, 0.4);
+  --doc-toggle-active-bg: #f1ddd1;
+  --doc-toggle-active-fg: #7e3420;
+}
+
+/* ---------- print (see print.ts) ---------- */
+.greek-print-root {
+  display: none;
+}
+@media print {
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+  body > :not(.greek-print-root) {
+    display: none !important;
+  }
+  .greek-print-root {
+    display: block !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .greek-print-root .docx-pages {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  .greek-print-page {
+    position: relative;
+    overflow: hidden;
+    break-after: page;
+    background: #fff;
+  }
+  .greek-print-page:last-child {
+    break-after: auto;
+  }
+}

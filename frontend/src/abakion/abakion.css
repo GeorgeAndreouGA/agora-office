@@ -1,0 +1,10 @@
+.abakion {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.abakion__grid {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}

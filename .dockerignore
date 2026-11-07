@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+tests
+.git
+.gitignore
+*.md
+!frontend/**/*.md
+.env
+.env.*
+**/*.log
+.vscode
+.idea
